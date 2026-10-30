@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CyberShop SnapBridge</title>
+<link rel="stylesheet" href="theme.css">
+</head>
+<body>
+
+<!-- ============ GLOBAL NAV BAR ============ -->
+<header class="nav">
+  <div class="nav-in">
+    <div class="brand">
+      <div class="logo"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 309.14 103.77">
+  
+  <defs>
+    <style>
+      .st0 {
+        stroke: var(--logo,#1c1a4f);
+        stroke-miterlimit: 10;
+      }
+
+      .st0, .st1, .st2, .st3 {
+        fill: none;
+      }
+
+      .st0, .st1, .st3 {
+        stroke-width: 4.98px;
+      }
+
+      .st1, .st2, .st3 {
+        stroke: #00a86a;
+        stroke-linejoin: round;
+      }
+
+      .st4 {
+        fill: #00a86a;
+      }
+
+      .st2 {
+        stroke-width: 3.97px;
+      }
+
+      .st2, .st3 {
+        stroke-linecap: round;
+      }
+    </style>
+  </defs>
+  <path class="st4" d="M280.75,37.77c.14.95-.53,1.84-1.48,1.97-.95.14-1.84-.52-1.97-1.48-.14-.95.52-1.84,1.48-1.97.95-.13,1.84.52,1.97,1.48Z" />
+  <path class="st0" d="M41.15,37.04c-3.21-4.63-8.57-7.67-14.63-7.67-9.82,0-17.79,7.96-17.79,17.79s7.97,17.79,17.79,17.79c6.19,0,11.64-3.16,14.82-7.95" />
+  <path class="st0" d="M144.26,53.87c0-5.62,3.65-11.2,7.97-14.14" />
+  <line class="st0" x1="144.13" y1="39.69" x2="144.13" y2="67.68" />
+  <path class="st0" d="M79.13,48.09c2.21-3.32,5.99-5.51,10.28-5.51,6.82,0,12.34,5.52,12.34,12.34s-5.52,12.34-12.34,12.34c-4.21,0-7.92-2.1-10.15-5.32" />
+  <path class="st0" d="M134.62,57.16c-1.28,5.31-5.76,9.5-11.5,10.13-7.31.8-13.89-4.48-14.69-11.79-.8-7.31,4.48-13.89,11.79-14.69,4.89-.53,9.45,1.65,12.17,5.34l-15.19,10.55" />
+  <line class="st0" x1="78.99" y1="31.57" x2="78.99" y2="67.25" />
+  <line class="st0" x1="58.89" y1="53.45" x2="58.89" y2="67.46" />
+  <path class="st0" d="M68,31.66c1.75,1.87,2.96,4.27,3.35,6.99,1.02,7.08-3.89,13.65-10.98,14.67-6.43.93-12.44-3.04-14.25-9.08" />
+  <path class="st3" d="M192.47,49.07c2.18-3.82,6.29-6.21,10.96-5.73,6.31.64,9.09,5.02,9.03,11.89l.1,3.63v8.1" />
+  <path class="st3" d="M254.77,61.52c2.44,3.67,6.6,6.08,11.34,6.08,7.51,0,13.6-6.09,13.6-13.6s-6.09-13.6-13.6-13.6c-4.64,0-8.73,2.32-11.19,5.86" />
+  <path class="st1" d="M247.07,53.33c0,7.36-5.96,13.32-13.32,13.32s-13.32-5.96-13.32-13.32,5.96-13.32,13.32-13.32,13.32,5.96,13.32,13.32Z" />
+  <line class="st3" x1="192.25" y1="29.49" x2="192.25" y2="67.25" />
+  <line class="st3" x1="254.62" y1="92.42" x2="254.62" y2="40.39" />
+  <path class="st3" d="M161.03,47.49c-.48-1.33-.74-2.76-.74-4.25,0-6.95,5.64-12.58,12.59-12.58,4.38,0,8.23,2.23,10.49,5.63" />
+  <path class="st3" d="M161.09,62.14c2.27,3.28,6.06,5.42,10.35,5.42,6.95,0,12.59-5.63,12.59-12.58,0-1.29-.19-2.53-.56-3.71" />
+  <line class="st1" x1="169.73" y1="49.05" x2="175.4" y2="49.05" />
+  <path class="st4" d="M280.75,37.77c.14.95-.53,1.84-1.48,1.97-.95.14-1.84-.52-1.97-1.48-.14-.95.52-1.84,1.48-1.97.95-.13,1.84.52,1.97,1.48Z" />
+  <path class="st2" d="M280.66,24.28s10.75,1.33,12.05,13.46" />
+  <path class="st2" d="M280.62,16.85c4.57.26,18.98,5.16,19.45,21.27" />
+  <path class="st2" d="M281.46,31.99s3,.74,3.96,4.36" />
+  </svg></div>
+      <div class="app"><b>SnapBridge</b></div>
+    </div>
+    <nav class="navbtns" aria-label="Main">
+      <button class="pill on" data-tab="tr">Transfer</button>
+      <button class="pill" data-tab="fs">FlatScan</button>
+      <button class="pill pri" id="pairBtn">Pair device</button>
+    </nav>
+    <div class="themes" role="group" aria-label="Theme">
+      <button data-theme-btn="dark" title="Dark theme"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>Dark</button>
+      <button data-theme-btn="light" title="Light theme"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>Light</button>
+    </div>
+  </div>
+</header>
+
+<div class="banner" id="ban" hidden>No live connection. Start the bundled server (node server.js) or open the app inside claude.ai. FlatScan still works offline.</div>
+
+<!-- ============ TAB 1: TRANSFER ============ -->
+<main id="tr" class="page">
+  <section>
+    <p class="label">Devices on your bridge · <span id="me">…</span></p>
+    <svg id="radar" viewBox="0 0 400 400" aria-label="Device radar"></svg>
+    <p class="label center">Send to</p>
+    <div class="actions" id="chips"></div>
+    <div class="actions">
+      <button class="pill pri" id="camBtn">Take photo</button>
+      <button class="pill" id="fileBtn">Send files</button>
+    </div>
+    <input type="file" id="camIn" accept="image/*" capture="environment" hidden>
+    <input type="file" id="files" multiple hidden>
+    <p class="sub center">Tip: drag files anywhere on this page to send them to the selected device.</p>
+  </section>
+  <section>
+    <div class="card">
+      <p class="label">Transfer in progress</p>
+      <div id="active"></div><div class="empty" id="e1">No active transfers</div>
+    </div>
+    <div class="card">
+      <p class="label">Transfer history</p>
+      <div class="saveline"><span id="saveInfo"></span><button class="mini" id="dirBtn">Choose folder</button></div>
+      <div id="done"></div><div class="empty" id="e2">No transfers yet. Completed sent and received files will appear here.</div>
+    </div>
+  </section>
+</main>
+
+<!-- ============ TAB 2: FLATSCAN ============ -->
+<div id="scanPanel" class="page" hidden>
+<input type="file" id="file" accept="image/*" hidden>
+<div class="scan-grid">
+  <section class="card">
+    <h2>1 · Crop &amp; straighten</h2>
+    <div class="fbar"><button class="b g" id="ad">Auto detect</button><button class="b g" id="fu">Full image</button><button class="b g" id="ro">Rotate ⟳</button></div>
+    <div class="stage" id="stage"><canvas id="ed" hidden></canvas><div id="empty">Drop an image here<br>or tap to browse</div></div>
+    <p class="hint">Drag the four corners onto the corners of the page.</p>
+  </section>
+  <section class="card">
+    <h2 class="hd">2 · Flat scan result<span class="gl"><label style="display:flex;gap:6px;align-items:center;cursor:pointer"><input type="checkbox" id="gd" checked> Guides</label><select id="gc"><option value="red">Red</option><option value="cyan">Cyan</option></select></span></h2>
+    <div class="stage" id="rst"><div class="rw"><canvas id="res" width="2" height="2"></canvas><div class="grid" id="grid" hidden></div></div></div>
+    <p class="hint" id="info">—</p>
+  </section>
+  <section class="card wide ctl">
+    <div>
+      <h2>Size</h2>
+      <label class="r2">Width (px)<input type="number" id="w" min="50" max="2400"></label>
+      <label class="r2">Height (px)<input type="number" id="h" min="50" max="2400"></label>
+      <label class="r2">Page shape<select id="pr"><option value="auto">Auto (from crop)</option><option value="0.7071">A4 portrait</option><option value="1.4142">A4 landscape</option><option value="0.7727">Letter portrait</option><option value="1.5852">ID card</option><option value="1">Square</option><option value="c">Custom</option></select></label>
+      <label class="r2">Lock ratio<input type="checkbox" id="lk" checked></label>
+    </div>
+    <div>
+      <h2>Colour</h2>
+      <div class="seg"><button data-m="orig">Original</button><button data-m="auto">Auto</button><button data-m="scan" class="on">Scan</button><button data-m="bw">B&amp;W</button><button data-m="gray">Gray</button></div>
+      <label class="sl">Brightness<input type="range" id="br" min="-50" max="50" value="0"><output></output></label>
+      <label class="sl">Contrast<input type="range" id="ct" min="-50" max="50" value="0"><output></output></label>
+      <label class="sl">Saturation<input type="range" id="sa" min="-100" max="100" value="0"><output></output></label>
+      <label class="sl">Blur<input type="range" id="bl" min="0" max="10" value="0"><output></output></label>
+      <label class="sl">Sharpen<input type="range" id="sp" min="0" max="10" value="0"><output></output></label>
+    </div>
+    <div>
+      <h2>Save</h2>
+      <label class="r2">Format<select id="fm"><option value="jpg">JPG</option><option value="png">PNG</option><option value="pdf">PDF</option></select></label>
+      <div class="fbar" style="margin-top:12px"><button class="b" id="fsSendBtn">Send to device</button><button class="b g" id="dl">Download</button><button class="b g" id="clr">Clear</button></div>
+      <div class="hint" id="fsTo"></div><div id="msg">Open an image to begin.</div>
+    </div>
+  </section>
+</div>
+</div>
+
+<!-- ============ DIALOGS ============ -->
+<dialog id="dlg">
+  <p class="label">Pair a device</p>
+  <div id="qr"></div>
+  <div class="code" id="code">······</div>
+  <p class="sub center" id="pairHelp"></p>
+  <input class="t" id="join" inputmode="numeric" maxlength="6" placeholder="Enter a code from another device">
+  <div class="actions"><button class="pill pri" id="joinBtn">Join</button><button class="pill" id="close">Close</button></div>
+</dialog>
+
+<dialog id="adjDlg">
+  <p class="label">New photo</p>
+  <img id="adjImg" alt="Photo preview" class="adjimg">
+  <p class="sub center">Is this a document? Straighten and crop it with FlatScan before sending.</p>
+  <div class="actions"><button class="pill pri" id="adjScan">Adjust with FlatScan</button><button class="pill" id="adjSend">Send as is</button><button class="pill" id="adjCancel">Cancel</button></div>
+</dialog>
+
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+<script src="transport.js"></script>
+<script src="flatscan.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

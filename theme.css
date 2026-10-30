@@ -1,0 +1,137 @@
+/* ==========================================================
+   CyberShop SnapBridge: theme.css
+   1. Design tokens (Dark default, Light via [data-theme="light"])
+   2. Base + global nav bar
+   3. Transfer tab (radar, rows, animations)
+   4. FlatScan tab (scoped under #scanPanel)
+   5. Dialogs + toast
+   ========================================================== */
+
+/* ---------- 1. TOKENS ---------- */
+:root{
+  --bg:#0b1020;--surf:#121a33;--line:#243056;--stage:#0c1220;
+  --acc:#6c4dff;--acc2:#9b86ff;--ok:#3ddc97;--bad:#ff5c6c;
+  --tx:#e8ecf8;--mu:#8e98b8;--logo:#e6edf7;--onacc:#fff;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+}
+:root[data-theme="light"]{
+  --bg:#f1f3fb;--surf:#ffffff;--line:#d5daee;--stage:#e6eaf3;
+  --tx:#141a33;--mu:#5d6788;--logo:#1c1a4f;
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+
+/* ---------- 2. BASE + NAV ---------- */
+body{
+  margin:0;background:var(--bg);color:var(--tx);
+  font:16px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:48px 48px;background-position:-1px -1px;
+}
+.nav{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px 16px;max-width:1100px;margin:0 auto;padding:10px 20px}
+.brand{display:flex;align-items:center;gap:14px}
+.logo{width:150px}.logo svg{width:100%;height:auto;display:block}
+.app{border-left:2px solid var(--line);padding-left:14px;font-size:18px}
+.navbtns{display:flex;gap:8px;flex-wrap:wrap}
+.pill{border:1px solid var(--line);background:var(--surf);color:var(--tx);border-radius:999px;padding:8px 16px;font:inherit;font-size:14px;cursor:pointer}
+.pill:hover{border-color:var(--acc2)}
+.pill.on{border-color:var(--acc);background:color-mix(in srgb,var(--acc) 25%,var(--surf))}
+.pill.pri{background:var(--acc);border-color:var(--acc);color:#fff}
+.themes{display:flex;gap:4px;padding:3px;border:1px solid var(--line);border-radius:999px;background:var(--surf)}
+.themes button{display:flex;align-items:center;gap:6px;border:0;background:none;color:var(--mu);border-radius:999px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.themes button.on{background:var(--acc);color:#fff}
+.themes svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+/* logo animation: green parts breathe, dot pulses */
+.logo .st1,.logo .st2,.logo .st3{animation:glow 3s ease-in-out infinite}
+.logo .st4{transform-box:fill-box;transform-origin:center;animation:pulse 2s ease-in-out infinite}
+@keyframes glow{50%{opacity:.45}}
+@keyframes pulse{50%{transform:scale(1.8)}}
+.banner{max-width:1060px;margin:12px auto 0;padding:10px 14px;border:1px solid var(--bad);border-radius:12px;font-size:14px}
+.page{max-width:1100px;margin:0 auto;padding:16px 20px 32px}
+#tr{display:grid;grid-template-columns:minmax(300px,1fr) minmax(300px,1fr);gap:24px}
+@media(max-width:760px){#tr{grid-template-columns:1fr}}
+.label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--mu);margin:0 0 12px}
+.center{text-align:center}
+.sub{font-size:12px;color:var(--mu);margin-top:2px}
+.card{background:var(--surf);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:16px;min-width:0}
+.empty{color:var(--mu);font-size:14px;padding:8px 0}
+.actions{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:12px 0}
+.mini{border:1px solid var(--line);background:none;color:var(--tx);border-radius:8px;padding:6px 10px;font:inherit;font-size:12px;cursor:pointer}
+input.t{width:100%;font:inherit;padding:9px 12px;border-radius:10px;border:1px solid var(--line);background:var(--bg);color:var(--tx)}
+
+/* ---------- 3. TRANSFER TAB ---------- */
+#radar{width:100%;max-width:460px;margin:0 auto;display:block}
+.dev text{font-size:11px;fill:var(--mu);text-anchor:middle}.dev{cursor:pointer}
+.dash{stroke:var(--acc2);stroke-width:1.5;stroke-dasharray:5 5;opacity:.35}
+.dash.live{opacity:1;animation:mv .6s linear infinite}
+@keyframes mv{to{stroke-dashoffset:-10}}
+.sweep{transform-origin:200px 200px;animation:sw 6s linear infinite}
+@keyframes sw{to{transform:rotate(360deg)}}
+.pkt{fill:var(--acc2)}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0}
+.row .meta{flex:1;min-width:0}
+.name{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.bar{height:5px;background:var(--line);border-radius:4px;margin-top:6px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:4px;transition:width .15s linear;
+  background:linear-gradient(90deg,var(--acc),var(--acc2),var(--acc));background-size:200% 100%;animation:shimmer 1s linear infinite}
+@keyframes shimmer{to{background-position:-200% 0}}
+.row.in{animation:slidein .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes slidein{from{transform:translateX(70px);opacity:0}}
+.row.land{animation:land .6s cubic-bezier(.2,.8,.2,1)}
+@keyframes land{0%{transform:translateY(-28px) scale(.96);opacity:0;background:color-mix(in srgb,var(--ok) 25%,transparent)}100%{transform:none;opacity:1;background:transparent}}
+.x{background:none;border:0;color:var(--tx);font-size:20px;cursor:pointer;width:40px;height:40px}
+.tick{color:var(--ok);font-size:20px;width:32px;text-align:center}
+.thumb{width:44px;height:44px;border-radius:8px;object-fit:cover;background:var(--stage);display:grid;place-items:center;flex:none}
+.saveline{display:flex;align-items:center;justify-content:space-between;gap:8px;font-size:12px;color:var(--mu);margin:-4px 0 8px}
+.fly{position:fixed;left:0;top:0;z-index:50;pointer-events:none;background:var(--acc);color:#fff;padding:8px 14px;border-radius:999px;font-size:13px;box-shadow:0 6px 24px #0005;white-space:nowrap}
+
+/* ---------- 4. FLATSCAN TAB ---------- */
+.scan-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media(max-width:800px){.scan-grid{grid-template-columns:1fr}}
+#scanPanel .wide{grid-column:1/-1}
+#scanPanel h2{margin:0 0 10px;font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--mu)}
+#scanPanel .hd{display:flex;justify-content:space-between;align-items:center}
+#scanPanel .gl{display:flex;gap:6px;align-items:center;text-transform:none;letter-spacing:0;font-size:12px}
+#scanPanel .gl select{width:auto;height:26px;padding:0 6px;font-size:12px}
+#scanPanel .fbar{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px}
+#scanPanel .b,#scanPanel select,#scanPanel input[type=number]{font:inherit;font-size:14px;padding:9px 14px;border-radius:10px;border:1px solid var(--line);background:var(--surf);color:var(--tx)}
+#scanPanel .b{cursor:pointer;background:var(--acc);color:#fff;border:0;font-weight:600}
+#scanPanel #fsSendBtn{background:var(--ok);color:#082116}
+#scanPanel .b.g{background:transparent;color:var(--tx);border:1px solid var(--line)}
+#scanPanel .stage{background:var(--stage);border-radius:12px;display:flex;align-items:center;justify-content:center;min-height:220px;overflow:hidden;position:relative}
+#ed{touch-action:none;cursor:crosshair;max-width:100%}
+#res{max-width:100%;max-height:640px;height:auto;box-shadow:0 6px 24px #0003}
+#empty{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--mu);cursor:pointer;border:2px dashed var(--line);border-radius:12px;padding:20px}
+.rw{position:relative;display:inline-block;line-height:0;max-width:100%}
+.grid{position:absolute;inset:0;pointer-events:none;background-image:linear-gradient(to right,var(--g2,#ff2b2b66) 1px,transparent 1px),linear-gradient(to bottom,var(--g2,#ff2b2b66) 1px,transparent 1px);background-size:5% 5%}
+.grid::before,.grid::after{content:"";position:absolute;background:var(--g,#ff2b2b);box-shadow:0 0 2px #000a}
+.grid::before{left:50%;top:0;bottom:0;width:1px}.grid::after{top:50%;left:0;right:0;height:1px}
+.hint{font-size:12px;color:var(--mu);margin:8px 0 0}
+.ctl{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+@media(max-width:800px){.ctl{grid-template-columns:1fr}}
+.r2,.sl{display:grid;align-items:center;gap:8px;margin:9px 0;font-size:13px;color:var(--mu)}
+.r2{grid-template-columns:1fr 150px}.sl{grid-template-columns:78px 1fr 34px}
+.ctl select,.ctl input[type=number]{width:150px;height:36px;padding:0 10px;font-size:14px}
+.sl input[type=range]{width:100%;margin:0;accent-color:var(--acc)}
+.sl output,.sl o{text-align:right;font-size:12px;color:var(--tx)}
+.r2 input[type=checkbox]{justify-self:start;width:18px;height:18px;accent-color:var(--acc)}
+.seg{display:flex;flex-wrap:nowrap;gap:4px}
+.seg button{flex:1 1 0;min-width:0;border:1px solid var(--line);background:transparent;color:var(--tx);padding:7px 2px;border-radius:99px;cursor:pointer;font:inherit;font-size:12px;white-space:nowrap}
+.seg .on{background:var(--acc);color:#fff;border-color:var(--acc)}
+#msg{font-size:13px;color:var(--mu);margin-top:10px;min-height:18px}
+
+/* ---------- 5. DIALOGS + TOAST ---------- */
+dialog{background:var(--surf);color:var(--tx);border:1px solid var(--line);border-radius:12px;max-width:380px;width:92%}
+dialog::backdrop{background:#0008}
+#qr{width:216px;height:216px;margin:12px auto;background:#fff;padding:8px;border-radius:8px}
+#qr img,#qr canvas{display:block;max-width:100%}
+.code{font-size:28px;letter-spacing:.3em;text-align:center;font-weight:600}
+.adjimg{display:block;max-width:100%;max-height:260px;margin:0 auto 12px;border-radius:8px}
+.toast{position:fixed;left:50%;bottom:calc(20px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--acc);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:.3s;pointer-events:none;max-width:90%;text-align:center;z-index:60}
+.toast.show{opacity:1}
+@media(prefers-reduced-motion:reduce){
+  .sweep,.dash.live,.bar i,.logo .st1,.logo .st2,.logo .st3,.logo .st4,.row.in,.row.land{animation:none}
+}
