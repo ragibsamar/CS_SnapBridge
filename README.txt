@@ -87,4 +87,4 @@ TROUBLESHOOTING
   double-click. Always open the http://... address printed by server.js.
 - Devices do not appear: both must use the same 6-digit code (see the Pair dialog).
 - Transfer stuck on "Direct link unavailable": check firewall/VPN, or rely on the relay.
-- No auto-save option: use Chrome or Edge on desktop.
+- No auto-save option: use Chrome or Edge on desktop
